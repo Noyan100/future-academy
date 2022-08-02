@@ -6,7 +6,7 @@ import profileIcon from '../../assets/profile.svg';
 import arrowDownIcon from '../../assets/arrow-down.svg';
 import styles from './Header.module.scss';
 
-const Header = () => {
+const Header: React.FC = () => {
   return (
     <header className={styles.container}>
       <img src={logo} alt="Future academy logo" />

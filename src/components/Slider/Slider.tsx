@@ -4,7 +4,7 @@ import sliderElements from '../../assets/slider-elements.svg';
 
 import styles from './Slider.module.scss';
 
-const Slider = () => {
+const Slider: React.FC = () => {
   return (
     <div className={styles.container}>
       <div className={styles.sliderContainer}>
@@ -15,6 +15,7 @@ const Slider = () => {
           <span className={styles.text}>Актуальные знания для новичков и профессионалов</span>
         </div>
       </div>
+      <img className={styles.sliderElements} src={sliderElements} alt="" />
     </div>
   );
 };
