@@ -1,0 +1,44 @@
+.container {
+  background: #fff;
+  padding: 20px;
+  margin-left: 30px;
+  border-radius: 10px;
+  position: relative;
+  img {
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    border-radius: 50%;
+  }
+  h3 {
+    margin-left: 15px;
+    transform: translateY(-150%);
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 25px;
+  }
+  h4 {
+    font-size: 12px;
+    color: #4f4f4f;
+    font-weight: 500;
+    width: 150px;
+    position: absolute;
+    left: 75px;
+    top: 45px;
+  }
+  p {
+    line-height: 1.57;
+    font-size: 14px;
+    min-width: 240px;
+    max-width: 240px;
+    color: #000;
+    font-weight: 500;
+    margin-bottom: 15px;
+  }
+  span {
+    color: #4f4f4f;
+    font-size: 14px;
+    font-weight: 500;
+  }
+}

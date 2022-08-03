@@ -10,25 +10,27 @@ const Header: React.FC = () => {
   return (
     <header className={styles.container}>
       <img src={logo} alt="Future academy logo" />
-      <ul>
-        <li>
-          <img src={menuIcon} alt="Future academy logo" />
-          Все курсы
-        </li>
-        <li>Мероприятия</li>
-        <li>Базы знаний</li>
-        <li>Карьера</li>
-        <li className={styles.selectLocation}>
-          <img src={mapIcon} alt="Map icon" />
-          Нижний Новгород
-          <img src={arrowDownIcon} alt="Arrow down" />
-        </li>
-        <li>8 800 950-33-98</li>
-        <li className="styles.login">
-          <img src={profileIcon} alt="Arrow down" />
-          Войти
-        </li>
-      </ul>
+      <nav>
+        <ul>
+          <li>
+            <img src={menuIcon} alt="Future academy logo" />
+            Все курсы
+          </li>
+          <li>Мероприятия</li>
+          <li>Базы знаний</li>
+          <li>Карьера</li>
+          <li className={styles.selectLocation}>
+            <img src={mapIcon} alt="Map icon" />
+            Нижний Новгород
+            <img src={arrowDownIcon} alt="Arrow down" />
+          </li>
+          <li>8 800 950-33-98</li>
+          <li className="styles.login">
+            <img src={profileIcon} alt="Arrow down" />
+            Войти
+          </li>
+        </ul>
+      </nav>
     </header>
   );
 };
