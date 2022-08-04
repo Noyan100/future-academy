@@ -1,0 +1,23 @@
+.swiper {
+  overflow: visible !important;
+}
+.swiper-wrapper {
+  width: 100%;
+}
+.swiper-pagination {
+  position: absolute !important;
+  width: 60% !important;
+  position: absolute;
+  top: 115% !important;
+  left: 50% !important;
+  transform: (translateX(-50%)) !important;
+}
+.swiper-pagination-progressbar {
+  background-color: #ffffff;
+  position: absolute !important;
+  transform: translateY(30%);
+  z-index: 100 !important;
+}
+.swiper-pagination-progressbar-fill {
+  background: linear-gradient(0.25turn, #f7941d, #27aae1) !important;
+}
