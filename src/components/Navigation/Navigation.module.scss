@@ -1,0 +1,30 @@
+.container {
+  font-family: "Montserrat", sans-serif;
+  width: 80%;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 20px 0;
+  ul {
+    display: flex;
+    li {
+      font-size: 14px;
+      line-height: 17.07px;
+      font-weight: 500;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      &:not(:first-child) {
+        margin-left: 40px;
+      }
+      img {
+        margin: 0 8px;
+      }
+    }
+    .selectLocation {
+      text-decoration: underline;
+    }
+  }
+}
