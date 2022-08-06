@@ -27,7 +27,9 @@ const FeedbackItem: React.FC<TFeedbackItem> = ({
       </h3>
       <h4>{info}</h4>
       <p>{text}</p>
-      <span>Звезда {rating} / 5</span>
+      <div className={styles.rating}>
+        <span>&#9733;</span> {rating} / 5
+      </div>
     </div>
   );
 };

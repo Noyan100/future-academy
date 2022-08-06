@@ -5,7 +5,6 @@ import 'swiper/css';
 import { Autoplay, FreeMode, Pagination } from 'swiper';
 import 'swiper/css/pagination';
 import './swiper.scss';
-import feedbackElements from '../../assets/feedback-elements.svg';
 
 import styles from './Feedback.module.scss';
 
@@ -77,7 +76,6 @@ const items: TItems[] = [
 ];
 
 const Feedback: React.FC = () => {
-  const ref = React.useRef(null);
   return (
     <section className={styles.container}>
       <h2>Отзывы наших студентов</h2>
@@ -123,7 +121,6 @@ const Feedback: React.FC = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-      {<img src={feedbackElements} alt="Feedback decoration" className={styles.decoration} />}
     </section>
   );
 };
