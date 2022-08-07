@@ -1,0 +1,117 @@
+.container {
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  gap: 50px;
+  padding: 100px 0;
+  justify-content: center;
+  margin: 0 auto;
+  width: 75%;
+  position: relative;
+  .wrapper {
+    .items {
+      display: flex;
+      justify-content: flex-start;
+      margin-top: 50px;
+      gap: 20px;
+      flex-wrap: wrap;
+      .itemsButton {
+        padding: 15px 25px 17px;
+        position: relative;
+        border-radius: 6px;
+        border: 0;
+        cursor: pointer;
+        transition: 0.5s;
+
+        font-family: "Montserrat", sans-serif;
+        font-weight: 500;
+        font-size: 14px;
+
+        &::before {
+          content: "";
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          top: 0;
+          left: 0;
+          z-index: -1;
+          background: linear-gradient(90deg, #f7941d 0%, #27aae1 100%);
+          filter: blur(3px);
+          opacity: 0.6;
+          transition: 0.5s;
+        }
+        &:hover {
+          &::before {
+            background: linear-gradient(90deg, #f7941d 0%, #27aae1 100%);
+            filter: blur(20px);
+            opacity: 0.9;
+          }
+        }
+        &:focus {
+          outline: none;
+          &::before {
+            background: linear-gradient(90deg, #f7941d 0%, #27aae1 100%);
+            filter: blur(20px);
+            opacity: 0.9;
+          }
+        }
+      }
+    }
+    .menu {
+      position: relative;
+      display: flex;
+      justify-content: space-around;
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: -9px;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background-color: #e0e0e0;
+      }
+      .indicator {
+        position: absolute;
+        bottom: -9px;
+        left: 0;
+        width: 33.333%;
+        height: 5px;
+        background: linear-gradient(90deg, #f7941d, #27aae1);
+        z-index: 3;
+        transition: 0.2s ease-in-out;
+      }
+      li {
+        position: relative;
+        &:not(:first-child) {
+          margin-left: 120px;
+        }
+        .menuButton {
+          display: flex;
+          outline: none;
+          border: none;
+          cursor: pointer;
+          position: relative;
+          img {
+            width: 50px;
+            height: 50px;
+            margin-right: 15px;
+          }
+          .menutext {
+            display: inline-flex;
+            margin-top: 10px;
+            align-items: flex-start;
+            flex-direction: column;
+            font-weight: 400;
+            font-size: 12px;
+            .menutitle {
+              font-weight: 700;
+              font-size: 16px;
+            }
+            .menusubtitle {
+              color: #4f4f4f;
+            }
+          }
+        }
+      }
+    }
+  }
+}

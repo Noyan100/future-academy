@@ -73,6 +73,51 @@ const items: TItems[] = [
     text: 'Lorem ipsum dolor sit amet, consectetur adipiwrerwerwerscing elit. Ut feugiat nisl at augue dapibus, id tristique lorem placerat!',
     rating: 2.87,
   },
+  {
+    id: 6,
+    imgSrc: 'https://via.placeholder.com/40',
+    firstName: 'Имbsbdsbя',
+    lastName: 'Фамилия',
+    info: 'Студент курса WEB разработчик',
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiwrerwerwerscing elit. Ut feugiat nisl at augue dapibus, id tristique lorem placerat!',
+    rating: 2.87,
+  },
+  {
+    id: 7,
+    imgSrc: 'https://via.placeholder.com/40',
+    firstName: 'Имbsbdsbя',
+    lastName: 'Фамилия',
+    info: 'Студент курса WEB разработчик',
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiwrerwerwerscing elit. Ut feugiat nisl at augue dapibus, id tristique lorem placerat!',
+    rating: 2.87,
+  },
+  {
+    id: 8,
+    imgSrc: 'https://via.placeholder.com/40',
+    firstName: 'Имbsbdsbя',
+    lastName: 'Фамилия',
+    info: 'Студент курса WEB разработчик',
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiwrerwerwerscing elit. Ut feugiat nisl at augue dapibus, id tristique lorem placerat!',
+    rating: 2.87,
+  },
+  {
+    id: 9,
+    imgSrc: 'https://via.placeholder.com/40',
+    firstName: 'Имbsbdsbя',
+    lastName: 'Фамилия',
+    info: 'Студент курса WEB разработчик',
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiwrerwerwerscing elit. Ut feugiat nisl at augue dapibus, id tristique lorem placerat!',
+    rating: 2.87,
+  },
+  {
+    id: 10,
+    imgSrc: 'https://via.placeholder.com/40',
+    firstName: 'Имbsbdsbя',
+    lastName: 'Фамилия',
+    info: 'Студент курса WEB разработчик',
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiwrerwerwerscing elit. Ut feugiat nisl at augue dapibus, id tristique lorem placerat!',
+    rating: 2.87,
+  },
 ];
 
 const Feedback: React.FC = () => {
@@ -108,9 +153,8 @@ const Feedback: React.FC = () => {
         freeMode
         className={styles.containerItems}>
         {items.map((obj) => (
-          <SwiperSlide>
+          <SwiperSlide key={obj.id}>
             <FeedbackItem
-              key={obj.id}
               imgSrc={obj.imgSrc}
               firstName={obj.firstName}
               lastName={obj.lastName}

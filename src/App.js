@@ -1,20 +1,23 @@
 import Feedback from './components/Feedback/Feedback';
 import Footer from './components/Footer/Footer';
-import Header from './components/Navigation/Navigation';
-import Slider from './components/Header/Header';
+import Navigation from './components/Navigation/Navigation';
+import Header from './components/Header/Header';
 import Video from './components/Video/Video';
 import WelcomeInfo from './components/WelcomeInfo/WelcomeInfo';
 
 import './scss/_app.scss';
+import Tab from './components/Tab/Tab';
 
 function App() {
   return (
     <div className="App">
+      <Navigation />
       <Header />
-      <Slider />
+      <Tab />
       <Video />
       <Feedback />
       <WelcomeInfo />
+      <HelpForm />
       <Footer />
     </div>
   );

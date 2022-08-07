@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactPlayer from 'react-player';
-import video from '../../assets/video-preview.png';
+import video from '../../assets/video-preview.jpg';
 import styles from './Video.module.scss';
 
 const Video: React.FC = () => {
