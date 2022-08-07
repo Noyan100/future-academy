@@ -4,6 +4,7 @@ import Navigation from './components/Navigation/Navigation';
 import Header from './components/Header/Header';
 import Video from './components/Video/Video';
 import WelcomeInfo from './components/WelcomeInfo/WelcomeInfo';
+import InfoBlock from './components/InfoBlock/InfoBlock';
 import HelpForm from './components/HelpForm/HelpForm';
 
 import './scss/_app.scss';
@@ -18,6 +19,7 @@ function App() {
       <Video />
       <Feedback />
       <WelcomeInfo />
+      <InfoBlock />
       <HelpForm />
       <Footer />
     </div>
