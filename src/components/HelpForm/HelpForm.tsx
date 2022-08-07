@@ -1,8 +1,25 @@
 import React from 'react';
+import OwlHintTwo from '../OwlHint/OwlHintTwo';
 import styles from './HelpForm.module.scss';
 
-const HelpForm = () => {
-  return <div className={styles.container}>HelpForm</div>;
+const HelpForm: React.FC = () => {
+  return (
+    <div className={styles.container}>
+      <OwlHintTwo />
+      <form className={styles.form}>
+        <input className={styles.oneLineForm} placeholder="Ваше имя" />
+        <input placeholder="Ваш телефон" />
+        <input placeholder="Ваш e-mail" />
+        <span className={styles.formText}>
+          Нажимая на кнопку, я соглашаюсь на обработку персональных данных и с правилами пользования
+          Платформой
+        </span>
+        <button type="submit" className={styles.formBtn}>
+          Отправить
+        </button>
+      </form>
+    </div>
+  );
 };
 
 export default HelpForm;

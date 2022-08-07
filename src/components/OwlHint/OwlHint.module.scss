@@ -66,15 +66,14 @@
 }
 
 .two {
-  width: 710px;
-  height: 300px;
+  position: relative;
   img {
     top: 0;
-    left: 0;
+    left: -280px;
   }
   .textContainer {
     width: 430px;
-    left: 280px;
+    left: 0;
     height: 195px;
     padding: 30px 20px;
     &:before {

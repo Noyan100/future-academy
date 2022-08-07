@@ -3,7 +3,7 @@ import styles from './Tab.module.scss';
 import iconOne from '../../assets/children.jpg';
 import iconTwo from '../../assets/teenagers.jpg';
 import iconThree from '../../assets/family.jpg';
-import { OwlHintOne } from '../../ui-kit';
+import OwlHintOne from '../OwlHint/OwlHintOne';
 
 const categories = ['children', 'teenagers', 'adults'];
 

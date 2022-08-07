@@ -1,0 +1,45 @@
+.container {
+  position: absolute;
+  bottom: -150px;
+  font-family: "Montserrat", sans-serif;
+  margin: 0 auto;
+  max-width: 80%;
+  padding: 40px 30px;
+  position: relative;
+  background: #fff;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+
+  .form {
+    display: grid;
+    grid-template: repeat(auto-fit, minmax(45px, 1fr)) / 200px 200px;
+    gap: 20px;
+    .oneLineForm {
+      grid-column-start: 1;
+      grid-column-end: 3;
+    }
+    input {
+      background-color: #00093c1a;
+      border: 0;
+      border-radius: 6px;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: 400;
+      position: relative;
+      border: 1px solid transparent;
+      &:focus {
+        outline: none;
+        border: 1px solid transparent;
+        border-image: linear-gradient(90deg, #f7941d 0%, #27aae1 100%);
+        border-image-slice: 1;
+      }
+    }
+    .formText {
+      font-size: 12px;
+      font-weight: 400;
+      color: #4f4f4f;
+    }
+  }
+}
