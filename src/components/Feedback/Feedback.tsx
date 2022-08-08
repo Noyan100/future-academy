@@ -25,7 +25,7 @@ const items: TItems[] = [
     firstName: 'Имя',
     lastName: 'Фамилия',
     info: 'Студент курса WEB разработчик',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut feugiat nisl at augue dapibus, id tristique lorem placerat. Curabitur pellentesque est bibendum urna facilisis varius. In hac habitasse platea dictumst. In ut dui sodales, scelerisque eros non, ultrices magna. ',
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut feugiat nisl at augue dapibus, id tristique lorem placerat. Curabitur pellentesque est bibendum urna facilisis varius. In hac habitasse platea dictumst. In ut dui sodales, scelerisque eros non, ultrices magna. orem ipsum dolor sit amet, consectetur adipiscing elit. Ut feugiat nisl at augue dapibus, id tristique lorem placerat. Curabitur pellentesque est bibendum urna facilisis varius. In hac habitasse platea dictumst. In ut dui sodales, scelerisque eros non, ultrices magna.  ',
     rating: 4.87,
   },
   {
@@ -150,7 +150,6 @@ const Feedback: React.FC = () => {
           type: 'progressbar',
         }}
         loop
-        freeMode
         className={styles.containerItems}>
         {items.map((obj) => (
           <SwiperSlide key={obj.id}>

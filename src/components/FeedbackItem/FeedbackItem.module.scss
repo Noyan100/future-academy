@@ -6,6 +6,7 @@
   margin-left: 15px;
   border-radius: 10px;
   position: relative;
+  max-height: 350px;
   img {
     width: 40px;
     height: 40px;
@@ -37,6 +38,8 @@
     color: #000;
     font-weight: 500;
     margin-bottom: 15px;
+    max-height: 202px;
+    overflow: hidden;
   }
   .rating {
     color: #4f4f4f;

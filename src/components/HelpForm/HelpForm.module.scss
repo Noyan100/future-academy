@@ -41,5 +41,20 @@
       font-weight: 400;
       color: #4f4f4f;
     }
+    .formBtn {
+      outline: none;
+      border: 0;
+      border-radius: 6px;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      background-color: #f7941d;
+      &:hover {
+        background-color: #ffae4d;
+      }
+      &:focus {
+        background-color: #ffae4d;
+      }
+    }
   }
 }

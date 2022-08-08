@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactPlayer from 'react-player';
 import video from '../../assets/video-preview.jpg';
-import styles from './Video.module.scss';
+import styles from './VideoBlock.module.scss';
 
 const Video: React.FC = () => {
   const img = <img src={video} alt="Future academy logo" />;

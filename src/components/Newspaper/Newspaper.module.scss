@@ -1,0 +1,190 @@
+.container {
+  font-family: "Montserrat", sans-serif;
+  display: grid;
+  width: 70%;
+  margin: 50px auto;
+  gap: 20px;
+  grid-template-areas:
+    "gridOne gridOne gridOne gridOne" "gridTwo gridTwo gridThree gridFour"
+    "gridTwo gridTwo gridFive gridFive";
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  .gridOne {
+    grid-area: gridOne;
+    background: #f7bc75;
+    padding: 20px 30px 25px;
+    border-radius: 20px;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    .data {
+      display: flex;
+      flex-direction: column;
+      .dataNumber {
+        font-weight: 700;
+        font-size: 80px;
+        line-height: 0.8;
+      }
+      .dataText {
+        font-weight: 500;
+        font-size: 24px;
+      }
+    }
+    .text {
+      gap: 10px;
+      width: 60%;
+      h3 {
+        font-weight: 500;
+        font-size: 36px;
+      }
+      .subtitle {
+        font-size: 16px;
+        font-weight: 400;
+        color: #333333;
+      }
+    }
+  }
+  .gridTwo {
+    grid-area: gridTwo;
+    padding: 30px 5px 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    text-align: center;
+    background: #c5ddff;
+    border-radius: 20px;
+    .text {
+      align-items: center;
+      gap: 30px;
+      width: 90%;
+    }
+    .button {
+    }
+  }
+  .gridThree {
+    grid-area: gridThree;
+    background: #b8efcf;
+    padding: 30px 30px 40px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 40px;
+    border-radius: 20px;
+    text-align: center;
+    cursor: pointer;
+  }
+  .gridFour {
+    grid-area: gridFour;
+    background: #ebebeb;
+    padding: 30px 30px 40px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 40px;
+    border-radius: 20px;
+    text-align: center;
+    cursor: pointer;
+  }
+  .gridFive {
+    grid-area: gridFive;
+    background-color: #ffe38e;
+    border-radius: 20px;
+    gap: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 40px 20px 40px;
+    cursor: pointer;
+    .text {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+  }
+  .gridOne,
+  .gridTwo,
+  .gridThree,
+  .gridFour,
+  .gridFive {
+    transition: 1s;
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      background: linear-gradient(90deg, #f7941d 0%, #27aae1 100%);
+      filter: blur(10px);
+      opacity: 0;
+      transition: 0.5s;
+    }
+  }
+  .gridOne:hover,
+  .gridTwo:hover,
+  .gridThree:hover,
+  .gridFour:hover,
+  .gridFive:hover {
+    &::before {
+      opacity: 1;
+      filter: blur(20px);
+    }
+  }
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+}
+.title {
+  font-size: 24px;
+  font-weight: 500;
+}
+.subtitle {
+  font-size: 16px;
+  font-weight: 400;
+  color: #333333;
+}
+.button {
+  background-color: transparent;
+  border-radius: 10px;
+  border: 2px solid #000;
+  padding: 15px 60px;
+  font-weight: 500;
+  font-size: 14px;
+  position: relative;
+  cursor: pointer;
+  &::after {
+    content: "";
+    position: absolute;
+    top: calc(50% - 1px);
+    transform: rotate(45deg) translateY(-50%);
+    left: 133px;
+    width: 6px;
+    height: 6px;
+    border-top: 2px solid #000;
+    border-right: 2px solid #000;
+  }
+  &:hover {
+    background-color: #000000;
+    color: #fff;
+    transition: 0.5s;
+    &:after {
+      transition: 0.5s;
+      border-top: 2px solid #fff;
+      border-right: 2px solid #fff;
+    }
+  }
+  &:focus {
+    background-color: #000000;
+    color: #fff;
+    transition: 0.5s;
+    &:after {
+      transition: 0.5s;
+      border-top: 2px solid #fff;
+      border-right: 2px solid #fff;
+    }
+  }
+}

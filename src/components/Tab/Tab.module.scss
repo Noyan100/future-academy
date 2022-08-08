@@ -2,7 +2,7 @@
   font-family: "Montserrat", sans-serif;
   display: flex;
   gap: 50px;
-  padding: 100px 0;
+  padding: 100px 0 50px;
   margin: 0 auto;
   justify-content: flex-start;
   width: 75%;
@@ -93,6 +93,20 @@
           border: none;
           cursor: pointer;
           position: relative;
+          &:hover {
+            .menutitle {
+              background: linear-gradient(90deg, #f7941d, #27aae1);
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+            }
+          }
+          &:focus {
+            .menutitle {
+              background: linear-gradient(90deg, #f7941d, #27aae1);
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+            }
+          }
           img {
             width: 50px;
             height: 50px;
