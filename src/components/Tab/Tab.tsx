@@ -64,7 +64,7 @@ const items = [
   },
 ];
 
-const Tab = () => {
+const Tab: React.FC<{ owl: boolean }> = ({ owl }) => {
   const [activeTab, setActiveTab] = React.useState(0);
 
   const indicator = React.useRef(null);
@@ -75,7 +75,7 @@ const Tab = () => {
 
   return (
     <div className={styles.container}>
-      <OwlHintOne />
+      {owl && <OwlHintOne />}
       <div className={styles.wrapper}>
         <ul className={styles.menu}>
           {tabBtns.map((obj, index) => (

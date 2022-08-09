@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import logo from '../../assets/header-logo.svg';
 import menuIcon from '../../assets/icon-rectangles.svg';
 import mapIcon from '../../assets/icon-map.svg';
@@ -9,12 +11,16 @@ import styles from './Navigation.module.scss';
 const Header: React.FC = () => {
   return (
     <header className={styles.container}>
-      <img src={logo} alt="Future academy logo" />
+      <Link to="/">
+        <img src={logo} alt="Future academy logo" />
+      </Link>
       <nav>
         <ul>
           <li>
-            <img src={menuIcon} alt="Future academy logo" />
-            Все курсы
+            <Link to="/allcourses">
+              <img src={menuIcon} alt="Future academy logo" />
+              Все курсы
+            </Link>
           </li>
           <li>Мероприятия</li>
           <li>Базы знаний</li>

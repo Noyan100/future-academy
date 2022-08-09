@@ -13,7 +13,7 @@ const Home: React.FC = () => {
   return (
     <>
       <Header />
-      <Tab />
+      <Tab owl={true} />
       <Video />
       <InfoBlock />
       <Newspaper />

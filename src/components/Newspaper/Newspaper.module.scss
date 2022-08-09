@@ -1,8 +1,7 @@
 .container {
-  font-family: "Montserrat", sans-serif;
   display: grid;
   width: 70%;
-  margin: 50px auto;
+  margin: 50px auto 100px;
   gap: 20px;
   grid-template-areas:
     "gridOne gridOne gridOne gridOne" "gridTwo gridTwo gridThree gridFour"
@@ -156,12 +155,14 @@
   font-size: 14px;
   position: relative;
   cursor: pointer;
+  transition: 0.5s;
   &::after {
+    transition: 0.5s;
     content: "";
     position: absolute;
-    top: calc(50% - 1px);
+    top: 50%;
     transform: rotate(45deg) translateY(-50%);
-    left: 133px;
+    left: 145px;
     width: 6px;
     height: 6px;
     border-top: 2px solid #000;
@@ -170,9 +171,7 @@
   &:hover {
     background-color: #000000;
     color: #fff;
-    transition: 0.5s;
     &:after {
-      transition: 0.5s;
       border-top: 2px solid #fff;
       border-right: 2px solid #fff;
     }
@@ -180,9 +179,7 @@
   &:focus {
     background-color: #000000;
     color: #fff;
-    transition: 0.5s;
     &:after {
-      transition: 0.5s;
       border-top: 2px solid #fff;
       border-right: 2px solid #fff;
     }

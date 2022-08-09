@@ -1,8 +1,8 @@
 .container {
-  font-family: "Montserrat", sans-serif;
+  box-sizing: border-box;
   display: flex;
   gap: 50px;
-  padding: 100px 0 50px;
+  padding: 50px 0;
   margin: 0 auto;
   justify-content: flex-start;
   width: 75%;
@@ -101,11 +101,7 @@
             }
           }
           &:focus {
-            .menutitle {
-              background: linear-gradient(90deg, #f7941d, #27aae1);
-              -webkit-background-clip: text;
-              -webkit-text-fill-color: transparent;
-            }
+            color: #696969;
           }
           img {
             width: 50px;

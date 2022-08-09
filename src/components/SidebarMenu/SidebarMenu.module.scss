@@ -1,0 +1,105 @@
+.container {
+  display: flex;
+  box-sizing: border-box;
+  width: 25%;
+  padding: 108px 0 50px;
+  flex-direction: column;
+  gap: 25px;
+  .blockOne,
+  .blockTwo,
+  .blockThree,
+  .blockFour {
+    padding-top: 25px;
+    border-top: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  .blockOne,
+  .blockTwo {
+    input {
+      position: absolute;
+      left: -9999px;
+    }
+    label {
+      position: relative;
+      cursor: pointer;
+      padding-left: 28px;
+      &:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 18px;
+        height: 18px;
+        background: #000;
+        border-radius: 100%;
+      }
+      &:after {
+        content: "";
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        border-radius: 50%;
+        width: 8px;
+        height: 8px;
+        border: 3px solid #fff;
+        background: #fff;
+      }
+    }
+    input {
+      position: absolute;
+      left: -9999px;
+    }
+    input:checked + label:before {
+      background: linear-gradient(90deg, #f7941d 0%, #27aae1 100%);
+    }
+    input:checked + label:after {
+      background: linear-gradient(90deg, #f7941d 0%, #27aae1 100%);
+    }
+  }
+  .blockThree {
+    .blockRangeSlider {
+    }
+    .rangeSlider {
+      padding-left: 5px;
+      div {
+        background: linear-gradient(90deg, #f7941d 0%, #27aae1 100%);
+        cursor: grab;
+      }
+      div:last-child {
+        background: linear-gradient(90deg, #f7941d 0%, #27aae1 100%);
+        width: 18px;
+        height: 18px;
+        top: -2px;
+        opacity: 1;
+        border: 0px;
+        box-shadow: 0px 0px;
+        position: relative;
+        &:after {
+          content: "";
+          position: absolute;
+          top: 2px;
+          left: 2px;
+          border-radius: 50%;
+          width: 8px;
+          height: 8px;
+          border: 3px solid #fff;
+          background: linear-gradient(90deg, #f7941d 0%, #27aae1 100%);
+        }
+      }
+    }
+  }
+  .blockTitle {
+    font-weight: 500;
+    font-size: 16px;
+  }
+  .blockFour {
+    .blockBanner {
+      width: 280px;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 20px;
+    }
+  }
+}
