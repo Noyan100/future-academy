@@ -1,2 +1,55 @@
 .container {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  gap: 25px;
+  cursor: pointer;
+  border-radius: 20px;
+  .header {
+    display: flex;
+    justify-content: space-between;
+  }
+  .title {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+  img {
+    width: 35px;
+    height: 50px;
+    object-fit: contain;
+  }
+  h3 {
+    font-size: 18px;
+    font-weight: 500;
+  }
+  p {
+    font-size: 14px;
+    font-weight: 400;
+    color: #4f4f4f;
+  }
+  .duration {
+    font-size: 14px;
+    font-weight: 500;
+  }
+  &::before {
+    transition: 0.5s;
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    filter: blur(15px);
+    background: linear-gradient(90deg, #f7941d 0%, #27aae1 100%);
+    opacity: 0;
+  }
+  &:hover {
+    &::before {
+      opacity: 1;
+      filter: blur(20px);
+    }
+  }
 }
