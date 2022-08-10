@@ -1,48 +1,8 @@
 import React from 'react';
+import { useAppDispatch, useAppSelector } from '../../hooks';
+import { fetchCourses } from '../../redux/slices/courseSlice/courseSlice';
 import ProgramItem from '../ProgramItem/ProgramItem';
 import styles from './Program.module.scss';
-
-const items = [
-  {
-    id: 0,
-    icon: '',
-    title: 'Разработка мобильных приложений',
-    text: 'Разработчик мобильных приложений создаёт приложения, которыми люди ежедневно пользуются на смартфонах, умных часах и планшетах.',
-    program: 'Курс',
-    category: 'Робототехника',
-    duration: 24,
-    age: 'child',
-    level: 'light',
-    type: 'any',
-    sale: 10,
-  },
-  {
-    id: 1,
-    icon: '',
-    title: 'Разработка мобильных приложений',
-    text: 'Разработчик мобильных приложений создаёт приложения, которыми люди ежедневно пользуются на смартфонах, умных часах и планшетах.',
-    program: 'Интенсивный курс',
-    category: 'Английский язык',
-    duration: 12,
-    age: 'teenagers',
-    level: 'light',
-    type: 'any',
-    sale: 10,
-  },
-  {
-    id: 2,
-    icon: '',
-    title: 'Разработка мобильных приложений',
-    text: 'Разработчик мобильных приложений создаёт приложения, которыми люди ежедневно пользуются на смартфонах, умных часах и планшетах.',
-    program: 'Курс',
-    category: 'Шахматы',
-    duration: 12,
-    age: 'adults',
-    level: 'light',
-    type: 'any',
-    sale: 10,
-  },
-];
 
 const colors = [
   '#C7EEFF',
@@ -56,6 +16,18 @@ const colors = [
 ];
 
 const Program: React.FC = () => {
+  const dispatch = useAppDispatch();
+
+  const items = useAppSelector((state) => state.courses.items);
+
+  const getCourses = () => {
+    dispatch(fetchCourses());
+  };
+
+  React.useEffect(() => {
+    getCourses();
+  }, []);
+
   return (
     <div className={styles.container}>
       {items.map((obj, index: number) => (
