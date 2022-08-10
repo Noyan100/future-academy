@@ -1,6 +1,6 @@
 import React from 'react';
 import { useAppDispatch, useAppSelector } from '../../hooks';
-import { fetchCourses } from '../../redux/slices/courseSlice/courseSlice';
+import { fetchCourses } from '../../redux/slices/courseSlice/slice';
 import ProgramItem from '../ProgramItem/ProgramItem';
 import styles from './Program.module.scss';
 
@@ -19,14 +19,15 @@ const Program: React.FC = () => {
   const dispatch = useAppDispatch();
 
   const items = useAppSelector((state) => state.courses.items);
+  const category = useAppSelector((state) => state.coursesFilter.category);
 
   const getCourses = () => {
-    dispatch(fetchCourses());
+    dispatch(fetchCourses({ category }));
   };
 
   React.useEffect(() => {
     getCourses();
-  }, []);
+  }, [category]);
 
   return (
     <div className={styles.container}>

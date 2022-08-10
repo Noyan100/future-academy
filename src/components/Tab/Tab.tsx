@@ -4,6 +4,9 @@ import iconOne from '../../assets/children.jpg';
 import iconTwo from '../../assets/teenagers.jpg';
 import iconThree from '../../assets/family.jpg';
 import OwlHintOne from '../OwlHint/OwlHintOne';
+import { Link } from 'react-router-dom';
+import { useAppDispatch } from '../../hooks';
+import { setCategory } from '../../redux/slices/courseFilterSlice/slice';
 
 const categories = ['children', 'teenagers', 'adults'];
 
@@ -65,12 +68,18 @@ const items = [
 ];
 
 const Tab: React.FC<{ owl: boolean }> = ({ owl }) => {
+  const dispatch = useAppDispatch();
+
   const [activeTab, setActiveTab] = React.useState(0);
 
   const indicator = React.useRef(null);
   const onClickMenu = (index: number) => {
     setActiveTab(index);
     indicator.current.style.left = `${(100 / 3) * index}% `;
+  };
+
+  const onClickCategory = (value: string) => {
+    dispatch(setCategory(value));
   };
 
   return (
@@ -95,9 +104,11 @@ const Tab: React.FC<{ owl: boolean }> = ({ owl }) => {
           {items.map(
             (obj) =>
               obj.category.includes(categories[activeTab]) && (
-                <button className={styles.itemsButton} key={obj.text}>
-                  {obj.text}
-                </button>
+                <Link to="/allcourses" key={obj.text}>
+                  <button className={styles.itemsButton} onClick={() => onClickCategory(obj.text)}>
+                    {obj.text}
+                  </button>
+                </Link>
               ),
           )}
         </div>
