@@ -36,7 +36,10 @@ const Home: React.FC = () => {
         <WelcomeInfo />
       </div>
       <div className={styles.helpform}>
-        <HelpForm />
+        <HelpForm
+          title="Помочь с выбором?"
+          text="Оставьте заявку и наши специалисты свяжутся с вами, ответят на все вопросы и подберут подходящий вариант обучения."
+        />
       </div>
     </div>
   );

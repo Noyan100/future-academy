@@ -11,13 +11,22 @@ const AllCourses: React.FC = () => {
     <div className={styles.container}>
       <h1>Все программы обучения</h1>
       <div className={styles.wrapper}>
-        <SidebarMenu />
+        <div className={styles.sidebarmenu}>
+          <SidebarMenu />
+        </div>
         <div className={styles.columnContainer}>
-          <Tab owl={false} />
-          <Program />
+          <div className={styles.tab}>
+            <Tab owl={false} />
+          </div>
+          <div className={styles.program}>
+            <Program />
+          </div>
         </div>
       </div>
-      <HelpForm />
+      <HelpForm
+        title="Помочь с выбором?"
+        text="Оставьте заявку и наши специалисты свяжутся с вами, ответят на все вопросы и подберут подходящий вариант обучения."
+      />
     </div>
   );
 };

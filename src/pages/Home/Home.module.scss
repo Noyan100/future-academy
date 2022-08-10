@@ -4,43 +4,36 @@
   .header {
     width: 100%;
     padding: 0;
-    margin: 0;
+    margin: 0 0 75px;
   }
   .tab {
-    width: 100%;
+    width: 70%;
     padding: 0;
-    margin: 0;
+    margin: 0 auto 25px;
   }
   .videoblock {
     width: 100%;
     padding: 0;
-    margin: 0 auto;
+    margin: 0 auto 25px;
   }
   .infoblock {
     width: 70%;
     padding: 0;
-    margin: 0 auto;
+    margin: 0 auto 50px;
   }
   .newspaper {
     width: 70%;
     padding: 0;
-    margin: 0 auto;
+    margin: 0 auto 75px;
   }
   .feedback {
     width: 100%;
     padding: 0;
-    margin: 0;
+    margin: 0 0 75px;
   }
   .welcomeinfo {
     width: 70%;
     padding: 0;
     margin: 0 auto;
-  }
-  .helpform {
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    position: relative;
-    bottom: -150px;
   }
 }

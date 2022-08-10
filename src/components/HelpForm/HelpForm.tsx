@@ -2,10 +2,15 @@ import React from 'react';
 import OwlHintTwo from '../OwlHint/OwlHintTwo';
 import styles from './HelpForm.module.scss';
 
-const HelpForm: React.FC = () => {
+export type THelpForm = {
+  title: string;
+  text: string;
+};
+
+const HelpForm: React.FC<THelpForm> = ({ title, text }) => {
   return (
     <div className={styles.container}>
-      <OwlHintTwo />
+      <OwlHintTwo title={title} text={text} />
       <form className={styles.form}>
         <input className={styles.oneLineForm} placeholder="Ваше имя" />
         <input placeholder="Ваш телефон" />

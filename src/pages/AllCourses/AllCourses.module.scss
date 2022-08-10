@@ -1,6 +1,9 @@
 .container {
   width: 80%;
   margin: 0 auto;
+  h1 {
+    margin-bottom: 50px;
+  }
   .wrapper {
     position: relative;
     display: flex;
@@ -8,7 +11,16 @@
     .columnContainer {
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
     }
+  }
+}
+
+.container {
+  .sidebarmenu {
+    padding: 58px 0 0;
+  }
+  .tab {
+  }
+  .program {
   }
 }
