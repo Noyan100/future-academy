@@ -1,7 +1,5 @@
 .container {
   display: grid;
-  width: 70%;
-  margin: 50px auto 100px;
   gap: 20px;
   grid-template-areas:
     "gridOne gridOne gridOne gridOne" "gridTwo gridTwo gridThree gridFour"

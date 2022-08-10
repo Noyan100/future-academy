@@ -18,13 +18,13 @@ const typeInputs = [
 const SidebarMenu = () => {
   const [level, setLevel] = React.useState('light');
 
-  const onLevelChange = (e: any) => {
-    setLevel(e.target.value);
+  const onLevelChange = (e: React.FormEvent<HTMLInputElement>) => {
+    setLevel(e.currentTarget.value);
   };
 
   const [type, setType] = React.useState('any');
-  const onTypeChange = (e: any) => {
-    setType(e.target.value);
+  const onTypeChange = (e: React.FormEvent<HTMLInputElement>) => {
+    setType(e.currentTarget.value);
   };
 
   const [rangeValue, setRangeValue] = React.useState(24);

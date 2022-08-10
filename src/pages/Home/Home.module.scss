@@ -1,0 +1,46 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  .header {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  .tab {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  .videoblock {
+    width: 100%;
+    padding: 0;
+    margin: 0 auto;
+  }
+  .infoblock {
+    width: 70%;
+    padding: 0;
+    margin: 0 auto;
+  }
+  .newspaper {
+    width: 70%;
+    padding: 0;
+    margin: 0 auto;
+  }
+  .feedback {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  .welcomeinfo {
+    width: 70%;
+    padding: 0;
+    margin: 0 auto;
+  }
+  .helpform {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    bottom: -150px;
+  }
+}

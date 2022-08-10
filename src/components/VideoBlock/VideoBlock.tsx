@@ -12,8 +12,8 @@ const Video: React.FC = () => {
         url="https://www.youtube.com/watch?v=wfMvlFZ99RM"
         light
         playIcon={img}
-        width="100%"
-        height="100%"
+        width="768px"
+        height="436px"
       />
     </section>
   );

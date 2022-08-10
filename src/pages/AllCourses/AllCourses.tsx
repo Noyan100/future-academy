@@ -1,5 +1,6 @@
 import React from 'react';
 import HelpForm from '../../components/HelpForm/HelpForm';
+import Program from '../../components/Program/Program';
 import SidebarMenu from '../../components/SidebarMenu/SidebarMenu';
 import Tab from '../../components/Tab/Tab';
 
@@ -11,7 +12,10 @@ const AllCourses: React.FC = () => {
       <h1>Все программы обучения</h1>
       <div className={styles.wrapper}>
         <SidebarMenu />
-        <Tab owl={false} />
+        <div className={styles.columnContainer}>
+          <Tab owl={false} />
+          <Program />
+        </div>
       </div>
       <HelpForm />
     </div>

@@ -1,7 +1,7 @@
 .container {
   display: flex;
   box-sizing: border-box;
-  width: 25%;
+  max-width: 25%;
   padding: 108px 0 50px;
   flex-direction: column;
   gap: 25px;
