@@ -9,6 +9,7 @@ export type TCourse = {
   age: string;
   level: string;
   type: string;
+  sale: number;
 };
 
 export type fetchCoursesArgs = {

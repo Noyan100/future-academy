@@ -10,6 +10,7 @@ type TProgramItem = {
   color: string;
   program: string;
   category: string;
+  sale: number;
 };
 
 const ProgramItem: React.FC<TProgramItem> = ({
@@ -20,6 +21,7 @@ const ProgramItem: React.FC<TProgramItem> = ({
   icon,
   program,
   category,
+  sale,
 }) => {
   return (
     <div className={styles.container} style={{ backgroundColor: color }}>
@@ -33,6 +35,7 @@ const ProgramItem: React.FC<TProgramItem> = ({
       </div>
       <p>{text}</p>
       <span className={styles.duration}>Длительность: {duration} месяцев</span>
+      {sale !== 0 ? <span className={styles.sale}>-{sale}%</span> : ''}
     </div>
   );
 };

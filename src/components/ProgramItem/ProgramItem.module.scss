@@ -9,6 +9,7 @@
   .header {
     display: flex;
     justify-content: space-between;
+    position: relative;
   }
   .title {
     display: flex;
@@ -51,5 +52,16 @@
       opacity: 1;
       filter: blur(20px);
     }
+  }
+  .sale {
+    position: absolute;
+    top: 75%;
+    right: -5px;
+    background-color: #f11212;
+    border-radius: 20px;
+    padding: 5px 15px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
   }
 }

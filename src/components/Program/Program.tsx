@@ -5,7 +5,7 @@ import ProgramItem from '../ProgramItem/ProgramItem';
 import Skeleton from '../ProgramItem/Skeleton';
 import styles from './Program.module.scss';
 
-const colors = [
+const colorList = [
   '#C7EEFF',
   '#FFCE94',
   '#FFE38E',
@@ -31,6 +31,16 @@ const Program: React.FC = () => {
     dispatch(fetchCourses({ category, age, level, type, duration }));
   };
 
+  const colors = () => {
+    let number = -1;
+    return [...new Array(items.length)].map(() => {
+      number >= 7 ? (number = 0) : number++;
+      return colorList[number];
+    });
+  };
+
+  console.log(colors());
+
   React.useEffect(() => {
     getCourses();
   }, [category, age, level, type, duration]);
@@ -49,7 +59,8 @@ const Program: React.FC = () => {
           icon={obj.icon}
           program={obj.program}
           category={obj.category}
-          color={colors[index]}
+          sale={obj.sale}
+          color={colors()[index]}
         />
       ))
     );
