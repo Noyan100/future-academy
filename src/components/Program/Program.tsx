@@ -2,6 +2,7 @@ import React from 'react';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { fetchCourses } from '../../redux/slices/courseSlice/slice';
 import ProgramItem from '../ProgramItem/ProgramItem';
+import Skeleton from '../ProgramItem/Skeleton';
 import styles from './Program.module.scss';
 
 const colors = [
@@ -20,18 +21,26 @@ const Program: React.FC = () => {
 
   const items = useAppSelector((state) => state.courses.items);
   const category = useAppSelector((state) => state.coursesFilter.category);
+  const age = useAppSelector((state) => state.coursesFilter.age);
+  const level = useAppSelector((state) => state.coursesFilter.level);
+  const type = useAppSelector((state) => state.coursesFilter.type);
+  const duration = useAppSelector((state) => state.coursesFilter.duration);
+  const status = useAppSelector((state) => state.courses.status);
 
   const getCourses = () => {
-    dispatch(fetchCourses({ category }));
+    dispatch(fetchCourses({ category, age, level, type, duration }));
   };
 
   React.useEffect(() => {
     getCourses();
-  }, [category]);
+  }, [category, age, level, type, duration]);
 
-  return (
-    <div className={styles.container}>
-      {items.map((obj, index: number) => (
+  const skeleton = [...new Array(4)].map(() => <Skeleton />);
+  const courses =
+    items.length === 0 ? (
+      <div>Курсов не найдено</div>
+    ) : (
+      items.map((obj, index: number) => (
         <ProgramItem
           key={obj.id}
           title={obj.title}
@@ -42,9 +51,10 @@ const Program: React.FC = () => {
           category={obj.category}
           color={colors[index]}
         />
-      ))}
-    </div>
-  );
+      ))
+    );
+
+  return <div className={styles.container}>{status === 'loading' ? skeleton : courses}</div>;
 };
 
 export default Program;

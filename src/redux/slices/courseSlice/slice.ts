@@ -5,11 +5,21 @@ import { ICourseSlice, TCourse, Status, fetchCoursesArgs } from './types';
 export const fetchCourses = createAsyncThunk(
   'users/fetchCourses',
   async (params: fetchCoursesArgs) => {
-    const { category } = params;
+    const { category, age, level, type, duration } = params;
     const { data } = await axios.get<TCourse[]>(
-      `https://62f37628a84d8c968123bc84.mockapi.io/courses?category=${category}`,
+      `https://62f37628a84d8c968123bc84.mockapi.io/courses`,
     );
-    return data as TCourse[];
+    const filteredData = data.filter((obj) => {
+      if (
+        (obj.category === category || category === 'Все категории') &&
+        obj.age === age &&
+        (obj.level === level || level === 'any' || obj.level === 'any') &&
+        (obj.type === type || type === 'any' || obj.type === 'any') &&
+        obj.duration <= duration
+      )
+        return obj;
+    });
+    return filteredData as TCourse[];
   },
 );
 
@@ -34,10 +44,6 @@ const courseSlice = createSlice({
     builder.addCase(fetchCourses.fulfilled, (state, action) => {
       state.status = Status.SUCCESS;
       state.items = action.payload;
-    });
-    builder.addCase(fetchCourses.rejected, (state) => {
-      state.status = Status.ERROR;
-      state.items = [];
     });
   },
 });

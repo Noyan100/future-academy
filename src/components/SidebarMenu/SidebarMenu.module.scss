@@ -6,7 +6,8 @@
   .blockOne,
   .blockTwo,
   .blockThree,
-  .blockFour {
+  .blockFour,
+  .blockFive {
     padding-top: 25px;
     border-top: 1px solid #e0e0e0;
     display: flex;
@@ -91,11 +92,13 @@
       }
     }
   }
-  .blockTitle {
-    font-weight: 500;
-    font-size: 16px;
-  }
   .blockFour {
+    button {
+      border: 0;
+      cursor: pointer;
+    }
+  }
+  .blockFive {
     .blockBanner {
       width: 280px;
       height: 400px;
@@ -103,4 +106,9 @@
       border-radius: 20px;
     }
   }
+}
+
+.blockTitle {
+  font-weight: 500;
+  font-size: 16px;
 }

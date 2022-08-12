@@ -2,8 +2,16 @@ import React from 'react';
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import styles from './SidebarMenu.module.scss';
+import { useAppDispatch } from '../../hooks';
+import {
+  resetAll,
+  setDuration,
+  setLevel,
+  setType,
+} from '../../redux/slices/courseFilterSlice/slice';
 
 const levelInputs = [
+  { name: 'Любой', id: 'any' },
   { name: 'Новичок', id: 'light' },
   { name: 'Пользователь', id: 'medium' },
   { name: 'Профессионал', id: 'hard' },
@@ -16,20 +24,30 @@ const typeInputs = [
 ];
 
 const SidebarMenu = () => {
-  const [level, setLevel] = React.useState('light');
+  const dispatch = useAppDispatch();
+  const [levelLocal, setLevelLocal] = React.useState(levelInputs[0].id);
 
   const onLevelChange = (e: React.FormEvent<HTMLInputElement>) => {
-    setLevel(e.currentTarget.value);
+    setLevelLocal(e.currentTarget.value);
+    dispatch(setLevel(e.currentTarget.value));
   };
 
-  const [type, setType] = React.useState('any');
+  const [typeLocal, setTypeLocal] = React.useState(typeInputs[0].id);
   const onTypeChange = (e: React.FormEvent<HTMLInputElement>) => {
-    setType(e.currentTarget.value);
+    setTypeLocal(e.currentTarget.value);
+    dispatch(setType(e.currentTarget.value));
   };
 
-  const [rangeValue, setRangeValue] = React.useState(24);
+  const [rangeLocal, setRangeLocal] = React.useState(24);
   const changeRangeValue = (value: number) => {
-    setRangeValue(value);
+    setRangeLocal(value);
+    dispatch(setDuration(value));
+  };
+  const clickResetAll = () => {
+    setLevelLocal(levelInputs[0].id);
+    setTypeLocal(typeInputs[0].id);
+    setRangeLocal(24);
+    dispatch(resetAll('any'));
   };
   return (
     <div className={styles.container}>
@@ -42,7 +60,7 @@ const SidebarMenu = () => {
               value={obj.id}
               name="level"
               type="radio"
-              checked={level === obj.id}
+              checked={levelLocal === obj.id}
               onChange={onLevelChange}
               className={styles.blockRadio}
             />
@@ -59,7 +77,7 @@ const SidebarMenu = () => {
               value={obj.id}
               name="type"
               type="radio"
-              checked={type === obj.id}
+              checked={typeLocal === obj.id}
               onChange={onTypeChange}
               className={styles.blockRadio}
             />
@@ -69,15 +87,22 @@ const SidebarMenu = () => {
       </div>
       <div className={styles.blockThree}>
         <span className={styles.blockTitle}>Длительность</span>
-        <span className={styles.blockRangeslider}>от 1 до {rangeValue} месяцев</span>
+        <span className={styles.blockRangeslider}>от 1 до {rangeLocal} месяцев</span>
         <Slider
           min={3}
           max={24}
+          value={rangeLocal}
           defaultValue={24}
+          step={3}
           className={styles.rangeSlider}
           onChange={changeRangeValue}></Slider>
       </div>
       <div className={styles.blockFour}>
+        <button className={styles.blockTitle} onClick={clickResetAll}>
+          Сбросить все фильтры
+        </button>
+      </div>
+      <div className={styles.blockFive}>
         <img src="https://via.placeholder.com/280x400" alt="" className={styles.blockBanner} />
       </div>
     </div>

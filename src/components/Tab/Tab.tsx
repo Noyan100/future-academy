@@ -5,8 +5,8 @@ import iconTwo from '../../assets/teenagers.jpg';
 import iconThree from '../../assets/family.jpg';
 import OwlHintOne from '../OwlHint/OwlHintOne';
 import { Link } from 'react-router-dom';
-import { useAppDispatch } from '../../hooks';
-import { setCategory } from '../../redux/slices/courseFilterSlice/slice';
+import { useAppDispatch, useAppSelector } from '../../hooks';
+import { setCategory, setAge } from '../../redux/slices/courseFilterSlice/slice';
 
 const categories = ['children', 'teenagers', 'adults'];
 
@@ -30,52 +30,63 @@ const tabBtns = [
 
 const items = [
   {
+    text: 'Все категории',
+    category: ['children', 'teenagers', 'adults'],
+  },
+  {
     text: 'Робототехника',
-    category: 'children',
+    category: ['children', 'teenagers'],
   },
   {
     text: 'Создание игр',
-    category: 'children',
+    category: ['children', 'teenagers'],
   },
   {
     text: 'Web-разработка',
-    category: 'children',
+    category: ['children', 'teenagers'],
   },
   {
     text: 'Мультимедиа',
-    category: 'children',
+    category: ['children'],
   },
   {
     text: 'Шахматы',
-    category: ['children', 'teenagers'],
+    category: ['teenagers'],
   },
   {
     text: '3D-моделирование и дизайн',
-    category: ['children', 'teenagers'],
+    category: ['teenagers'],
   },
   {
     text: 'Английский язык',
-    category: ['children', 'teenagers'],
+    category: ['teenagers'],
   },
   {
     text: 'Блогинг',
-    category: ['children', 'teenagers', 'adults'],
+    category: ['teenagers', 'adults'],
   },
   {
     text: 'Soft skills',
-    category: ['children', 'teenagers', 'adults'],
+    category: ['teenagers', 'adults'],
   },
 ];
 
 const Tab: React.FC<{ owl: boolean }> = ({ owl }) => {
   const dispatch = useAppDispatch();
 
-  const [activeTab, setActiveTab] = React.useState(0);
-
+  const age = useAppSelector((state) => state.coursesFilter.age);
+  const [activeTab, setActiveTab] = React.useState(
+    categories.findIndex((element) => element === age),
+  );
   const indicator = React.useRef(null);
+
+  React.useEffect(() => {
+    indicator.current.style.left = `${(100 / 3) * activeTab}% `;
+  }, [activeTab]);
   const onClickMenu = (index: number) => {
     setActiveTab(index);
-    indicator.current.style.left = `${(100 / 3) * index}% `;
+    dispatch(setCategory('Все категории'));
+    dispatch(setAge(categories[index]));
   };
 
   const onClickCategory = (value: string) => {

@@ -7,6 +7,9 @@ import Tab from '../../components/Tab/Tab';
 import styles from './AllCourses.module.scss';
 
 const AllCourses: React.FC = () => {
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className={styles.container}>
       <h1>Все программы обучения</h1>

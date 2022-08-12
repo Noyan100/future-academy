@@ -6,10 +6,17 @@ export type TCourse = {
   icon: string;
   program: string;
   category: string;
+  age: string;
+  level: string;
+  type: string;
 };
 
 export type fetchCoursesArgs = {
   category: string;
+  age: string;
+  level: string;
+  type: string;
+  duration: number;
 };
 
 export interface ICourseSlice {
