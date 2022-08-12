@@ -1,11 +1,43 @@
+.darkTheme {
+  background: #00093c;
+  color: #fff;
+  a {
+    color: #fff;
+  }
+  .selectLocation {
+    &::before {
+      border-color: #fff !important;
+    }
+  }
+}
+
+.lightTheme {
+  background: #fff;
+  color: #00093c;
+  a {
+    color: #00093c;
+  }
+  .selectLocation {
+    &::before {
+      border-color: #00093c !important;
+    }
+  }
+}
+
 .container {
-  width: 80%;
-  margin: 0 auto;
+  width: 100%;
 
   display: flex;
   align-items: center;
   justify-content: space-around;
   padding: 20px 0;
+  .wrapper {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0 auto;
+  }
   ul {
     display: flex;
     li {
@@ -43,6 +75,17 @@
       }
     }
     .selectLocation {
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        transform: rotate(135deg) translateY(calc(75% + 1px));
+        right: -15px;
+        width: 4px;
+        height: 4px;
+        border-top: 2px solid #00093c;
+        border-right: 2px solid #00093c;
+      }
     }
   }
 }

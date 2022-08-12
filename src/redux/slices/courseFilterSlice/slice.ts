@@ -30,7 +30,7 @@ const courseFilterSlice = createSlice({
     },
     resetAll: (state, action) => {
       state.level = action.payload;
-      state.type = 'any';
+      state.type = action.payload;
       state.duration = 24;
     },
   },

@@ -2,7 +2,7 @@ import React from 'react';
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import styles from './SidebarMenu.module.scss';
-import { useAppDispatch } from '../../hooks';
+import { useAppDispatch, useAppSelector } from '../../hooks';
 import {
   resetAll,
   setDuration,
@@ -25,29 +25,34 @@ const typeInputs = [
 
 const SidebarMenu = () => {
   const dispatch = useAppDispatch();
-  const [levelLocal, setLevelLocal] = React.useState(levelInputs[0].id);
+  const level = useAppSelector((state) => state.coursesFilter.level);
+  const [levelLocal, setLevelLocal] = React.useState(level);
 
   const onLevelChange = (e: React.FormEvent<HTMLInputElement>) => {
     setLevelLocal(e.currentTarget.value);
     dispatch(setLevel(e.currentTarget.value));
   };
 
-  const [typeLocal, setTypeLocal] = React.useState(typeInputs[0].id);
+  const type = useAppSelector((state) => state.coursesFilter.type);
+  console.log('clicked');
+  const [typeLocal, setTypeLocal] = React.useState(type);
   const onTypeChange = (e: React.FormEvent<HTMLInputElement>) => {
+    console.log(e.currentTarget.value);
     setTypeLocal(e.currentTarget.value);
     dispatch(setType(e.currentTarget.value));
   };
 
-  const [rangeLocal, setRangeLocal] = React.useState(24);
+  const range = useAppSelector((state) => state.coursesFilter.duration);
+  const [rangeLocal, setRangeLocal] = React.useState(range);
   const changeRangeValue = (value: number) => {
     setRangeLocal(value);
     dispatch(setDuration(value));
   };
   const clickResetAll = () => {
+    dispatch(resetAll('any'));
     setLevelLocal(levelInputs[0].id);
     setTypeLocal(typeInputs[0].id);
     setRangeLocal(24);
-    dispatch(resetAll('any'));
   };
   return (
     <div className={styles.container}>
@@ -56,7 +61,7 @@ const SidebarMenu = () => {
         {levelInputs.map((obj) => (
           <div key={obj.name}>
             <input
-              id={obj.id}
+              id={'level' + obj.id}
               value={obj.id}
               name="level"
               type="radio"
@@ -64,7 +69,7 @@ const SidebarMenu = () => {
               onChange={onLevelChange}
               className={styles.blockRadio}
             />
-            <label htmlFor={obj.id}>{obj.name}</label>
+            <label htmlFor={'level' + obj.id}>{obj.name}</label>
           </div>
         ))}
       </div>
@@ -73,7 +78,7 @@ const SidebarMenu = () => {
         {typeInputs.map((obj) => (
           <div key={obj.name}>
             <input
-              id={obj.id}
+              id={'type' + obj.id}
               value={obj.id}
               name="type"
               type="radio"
@@ -81,7 +86,7 @@ const SidebarMenu = () => {
               onChange={onTypeChange}
               className={styles.blockRadio}
             />
-            <label htmlFor={obj.id}>{obj.name}</label>
+            <label htmlFor={'type' + obj.id}>{obj.name}</label>
           </div>
         ))}
       </div>

@@ -35,7 +35,7 @@ const Program: React.FC = () => {
     getCourses();
   }, [category, age, level, type, duration]);
 
-  const skeleton = [...new Array(4)].map(() => <Skeleton />);
+  const skeleton = [...new Array(4)].map((obj, index) => <Skeleton key={index} />);
   const courses =
     items.length === 0 ? (
       <div>Курсов не найдено</div>

@@ -47,14 +47,6 @@
             opacity: 0.9;
           }
         }
-        &:focus {
-          outline: none;
-          &::before {
-            background: linear-gradient(90deg, #f7941d 0%, #27aae1 100%);
-            filter: blur(20px);
-            opacity: 0.9;
-          }
-        }
       }
     }
     .menu {
