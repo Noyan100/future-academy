@@ -1,8 +1,8 @@
 .darkTheme {
   background: #00093c;
-  color: #fff;
+  color: #fff !important;
   a {
-    color: #fff;
+    color: #fff !important;
   }
   .selectLocation {
     &::before {
@@ -13,9 +13,9 @@
 
 .lightTheme {
   background: #fff;
-  color: #00093c;
+  color: #00093c !important;
   a {
-    color: #00093c;
+    color: #00093c !important;
   }
   .selectLocation {
     &::before {

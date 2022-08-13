@@ -2,11 +2,12 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import Footer from './components/Footer/Footer';
+import MainLayout from './layouts/MainLayout';
 import Home from './pages/Home/Home';
 import AllCourses from './pages/AllCourses/AllCourses';
+import EventsPage from './pages/EventsPage/EventsPage';
 
 import './scss/_app.scss';
-import MainLayout from './layouts/MainLayout';
 
 function App() {
   return (
@@ -18,8 +19,10 @@ function App() {
         <Route path="/allcourses" element={<MainLayout theme="dark" />}>
           <Route path="" element={<AllCourses />}></Route>
         </Route>
+        <Route path="/events" element={<MainLayout theme="dark" />}>
+          <Route path="" element={<EventsPage />}></Route>
+        </Route>
       </Routes>
-      <Footer />
     </div>
   );
 }

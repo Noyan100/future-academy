@@ -1,20 +1,10 @@
 import React from 'react';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { fetchCourses } from '../../redux/slices/courseSlice/slice';
+import { colors } from '../../utils/setColor';
 import ProgramItem from '../ProgramItem/ProgramItem';
 import Skeleton from '../ProgramItem/Skeleton';
 import styles from './Program.module.scss';
-
-const colorList = [
-  '#C7EEFF',
-  '#FFCE94',
-  '#FFE38E',
-  '#DDDDFF',
-  '#B8EFCF',
-  '#C7EEFF',
-  '#C5DDFF',
-  '#FFEEF6',
-];
 
 const Program: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -30,16 +20,6 @@ const Program: React.FC = () => {
   const getCourses = () => {
     dispatch(fetchCourses({ category, age, level, type, duration }));
   };
-
-  const colors = () => {
-    let number = -1;
-    return [...new Array(items.length)].map(() => {
-      number >= 7 ? (number = 0) : number++;
-      return colorList[number];
-    });
-  };
-
-  console.log(colors());
 
   React.useEffect(() => {
     getCourses();
@@ -60,7 +40,7 @@ const Program: React.FC = () => {
           program={obj.program}
           category={obj.category}
           sale={obj.sale}
-          color={colors()[index]}
+          color={colors(items.length)[index]}
         />
       ))
     );

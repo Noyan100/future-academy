@@ -34,10 +34,8 @@ const SidebarMenu = () => {
   };
 
   const type = useAppSelector((state) => state.coursesFilter.type);
-  console.log('clicked');
   const [typeLocal, setTypeLocal] = React.useState(type);
   const onTypeChange = (e: React.FormEvent<HTMLInputElement>) => {
-    console.log(e.currentTarget.value);
     setTypeLocal(e.currentTarget.value);
     dispatch(setType(e.currentTarget.value));
   };

@@ -32,7 +32,9 @@ const Header: React.FC<{ theme: string }> = ({ theme }) => {
                 Все курсы
               </Link>
             </li>
-            <li>Мероприятия</li>
+            <li>
+              <Link to="/events">Мероприятия</Link>
+            </li>
             <li>Базы знаний</li>
             <li>Карьера</li>
             <li className={styles.selectLocation}>
