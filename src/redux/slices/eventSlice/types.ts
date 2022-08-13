@@ -1,5 +1,5 @@
 export type TEvent = {
-  id: number;
+  id: string;
   title: string;
   text: string;
   type: string;

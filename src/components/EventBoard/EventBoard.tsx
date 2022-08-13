@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { fetchEvents } from '../../redux/slices/eventSlice/slice';
 import { colors } from '../../utils/setColor';
@@ -35,14 +36,16 @@ const EventBoard = () => {
         </div>
         {items.map((obj, index) => (
           <div className={styles.flexDefault} key={obj.id}>
-            <DefaultItem
-              title={obj.title}
-              text={obj.text}
-              backImage={obj.background}
-              type={obj.type}
-              date={obj.date}
-              color={colors(items.length)[index]}
-            />
+            <Link key={obj.id} to={`/events/${obj.id}`}>
+              <DefaultItem
+                title={obj.title}
+                text={obj.text}
+                backImage={obj.background}
+                type={obj.type}
+                date={obj.date}
+                color={colors(items.length)[index]}
+              />
+            </Link>
           </div>
         ))}
       </div>

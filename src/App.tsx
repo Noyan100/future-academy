@@ -1,11 +1,11 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import Footer from './components/Footer/Footer';
 import MainLayout from './layouts/MainLayout';
 import Home from './pages/Home/Home';
 import AllCourses from './pages/AllCourses/AllCourses';
 import EventsPage from './pages/EventsPage/EventsPage';
+import EventPage from './pages/EventsPage/EventPage/EventPage';
 
 import './scss/_app.scss';
 
@@ -21,6 +21,9 @@ function App() {
         </Route>
         <Route path="/events" element={<MainLayout theme="dark" />}>
           <Route path="" element={<EventsPage />}></Route>
+        </Route>
+        <Route path="/events/:id" element={<MainLayout theme="light" />}>
+          <Route path="" element={<EventPage />}></Route>
         </Route>
       </Routes>
     </div>
