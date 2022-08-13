@@ -1,9 +1,21 @@
 import React from 'react';
-import DefaultItem from './DefaultItem';
+import { useAppDispatch, useAppSelector } from '../../hooks';
+import { fetchEvents } from '../../redux/slices/eventSlice/slice';
+import { colors } from '../../utils/setColor';
+import DefaultItem from './DefaultItem/DefaultItem';
 
 import styles from './EventBoard.module.scss';
 
 const EventBoard = () => {
+  const dispatch = useAppDispatch();
+  const items = useAppSelector((state) => state.events.items);
+  const getEvents = () => {
+    dispatch(fetchEvents());
+  };
+
+  React.useEffect(() => {
+    getEvents();
+  }, []);
   return (
     <div className={styles.container}>
       <div className={styles.flexContainer}>
@@ -21,13 +33,18 @@ const EventBoard = () => {
           </div>
           <button className={styles.button}>Записаться</button>
         </div>
-        <DefaultItem />
-        <div className={styles.flexWithIcon}>
-          <div className={styles.card}>
-            <div className={styles.front}>Front</div>
-            <div className={styles.back}>Back</div>
+        {items.map((obj, index) => (
+          <div className={styles.flexDefault} key={obj.id}>
+            <DefaultItem
+              title={obj.title}
+              text={obj.text}
+              backImage={obj.background}
+              type={obj.type}
+              date={obj.date}
+              color={colors(items.length)[index]}
+            />
           </div>
-        </div>
+        ))}
       </div>
     </div>
   );

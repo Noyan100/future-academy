@@ -29,7 +29,7 @@ const initialState: ICourseSlice = {
 };
 
 const courseSlice = createSlice({
-  name: 'counter',
+  name: 'course',
   initialState,
   reducers: {
     setItems: (state, action) => {
@@ -44,6 +44,10 @@ const courseSlice = createSlice({
     builder.addCase(fetchCourses.fulfilled, (state, action) => {
       state.status = Status.SUCCESS;
       state.items = action.payload;
+    });
+    builder.addCase(fetchCourses.rejected, (state) => {
+      state.status = Status.ERROR;
+      state.items = [];
     });
   },
 });
