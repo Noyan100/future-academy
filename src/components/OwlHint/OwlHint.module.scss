@@ -51,16 +51,15 @@
   width: 300px;
   height: 350px;
   img {
-    bottom: 0;
-    left: 0;
+    bottom: 0px;
+    left: 0px;
   }
   .textContainer {
     width: 300px;
     height: 220px;
-    padding: 25px 20px;
-    &:before {
-      background: transparent url(./owl/border-one.svg) no-repeat right top;
-    }
+    background: transparent url(./owl/border-one.svg) right top/contain no-repeat;
+    padding: 20px 25px;
+    white-space: wrap;
   }
 }
 

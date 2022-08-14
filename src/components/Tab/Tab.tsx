@@ -95,7 +95,12 @@ const Tab: React.FC<{ owl: boolean }> = ({ owl }) => {
 
   return (
     <div className={styles.container}>
-      {owl && <OwlHintOne />}
+      {owl && (
+        <OwlHintOne
+          title="Кем вы хотите стать?"
+          text={['Пора найти себя и выбрать подходящий курс :)', 'Удачи!']}
+        />
+      )}
       <div className={styles.wrapper}>
         <ul className={styles.menu}>
           {tabBtns.map((obj, index) => (

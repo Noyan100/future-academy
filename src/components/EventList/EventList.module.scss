@@ -1,0 +1,23 @@
+.container {
+  ul {
+    display: flex;
+    justify-content: space-between;
+    gap: 25px;
+    li {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      img {
+        width: 33px;
+        height: 33px;
+      }
+      .title {
+        font-size: 24px;
+        font-weight: 700;
+      }
+      .text {
+        font-size: 15px;
+      }
+    }
+  }
+}

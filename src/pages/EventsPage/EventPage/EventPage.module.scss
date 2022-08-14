@@ -1,0 +1,13 @@
+.container {
+  .eventlist {
+    display: flex;
+    width: 75%;
+    margin: 100px auto;
+    padding: 0 0;
+    gap: 50px;
+  }
+  .eventprogram {
+    width: 75%;
+    margin: 0 auto;
+  }
+}
