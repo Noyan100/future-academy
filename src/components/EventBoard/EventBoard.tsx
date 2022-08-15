@@ -39,7 +39,7 @@ const EventBoard = () => {
             <Link key={obj.id} to={`/events/${obj.id}`}>
               <DefaultItem
                 title={obj.title}
-                text={obj.text}
+                text={obj.previewtext}
                 backImage={obj.background}
                 type={obj.type}
                 date={obj.date}

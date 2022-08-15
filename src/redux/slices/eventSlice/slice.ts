@@ -3,7 +3,6 @@ import axios from 'axios';
 import { IEventSlice, TEvent, Status } from './types';
 
 export const fetchEvents = createAsyncThunk('users/fetchEvents', async () => {
-  console.log('Вызов');
   const { data } = await axios.get<TEvent[]>(`https://62f37628a84d8c968123bc84.mockapi.io/events`);
   return data as TEvent[];
 });
@@ -11,12 +10,16 @@ export const fetchEvents = createAsyncThunk('users/fetchEvents', async () => {
 const initialState: IEventSlice = {
   items: [],
   status: Status.LOADING, //loading, success, error
+  currentEvent: {} as TEvent,
 };
 
 const eventSlice = createSlice({
   name: 'events',
   initialState,
   reducers: {
+    setEvent: (state, action) => {
+      state.currentEvent = action.payload;
+    },
     setItems: (state, action) => {
       state.items = action.payload;
     },
@@ -37,6 +40,6 @@ const eventSlice = createSlice({
   },
 });
 
-export const { setItems } = eventSlice.actions;
+export const { setItems, setEvent } = eventSlice.actions;
 
 export default eventSlice.reducer;

@@ -1,7 +1,7 @@
 export type TEvent = {
   id: string;
   title: string;
-  text: string;
+  previewtext: string;
   type: string;
   date: string;
   background: string;
@@ -10,6 +10,7 @@ export type TEvent = {
 export interface IEventSlice {
   items: TEvent[];
   status: 'loading' | 'success' | 'error';
+  currentEvent: TEvent;
 }
 
 export enum Status {

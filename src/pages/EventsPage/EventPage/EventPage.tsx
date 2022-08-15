@@ -14,9 +14,31 @@ const EventPage: React.FC = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const [item, setItem] = React.useState();
+  type TProgramList = {
+    title: string;
+    text: string;
+  };
+
+  type TItemEvent = {
+    title: string;
+    subtitle: string;
+    eventlist: string[];
+    whatinevent: string[];
+    programtext: string;
+    programlist: [TProgramList];
+  };
+
+  const [item, setItem] = React.useState<TItemEvent>({
+    title: '',
+    subtitle: '',
+    eventlist: [],
+    whatinevent: [],
+    programtext: '',
+    programlist: [{ title: '', text: '' }],
+  });
 
   React.useEffect(() => {
+    window.scrollTo(0, 0);
     async function fetchEvent() {
       try {
         const { data } = await axios.get(
@@ -32,15 +54,19 @@ const EventPage: React.FC = () => {
     fetchEvent();
   }, []);
 
+  console.log(item.programlist);
+
   return (
     <div className={styles.container}>
-      <EventHeader />
+      <div className={styles.eventheader}>
+        <EventHeader title={item.title} subtitle={item.subtitle} eventlist={item.eventlist} />
+      </div>
       <div className={styles.eventlist}>
         <OwlHintOne title="" text={['Текст, призывающий записаться на мероприятие']} />
-        <EventList />
+        <EventList eventlist={item.whatinevent} />
       </div>
       <div className={styles.eventprogram}>
-        <EventProgram />
+        <EventProgram text={item.programtext} programlist={item.programlist} />
       </div>
       <div className={styles.eventmanagers}>
         <EventManagers />
