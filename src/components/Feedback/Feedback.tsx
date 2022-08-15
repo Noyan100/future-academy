@@ -3,8 +3,6 @@ import FeedbackItem from '../FeedbackItem/FeedbackItem';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import { Autoplay, FreeMode, Pagination } from 'swiper';
-import 'swiper/css/pagination';
-import './swiper.scss';
 
 import styles from './Feedback.module.scss';
 

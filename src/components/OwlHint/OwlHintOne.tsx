@@ -9,7 +9,7 @@ const OwlHintOne: React.FC<{ title: string; text: string[] }> = ({ title, text }
       <div className={styles.textContainer}>
         <h2>{title}</h2>
         {text.map((value, index) => (
-          <p>{text[index]}</p>
+          <p key={index}>{text[index]}</p>
         ))}
       </div>
       <img src={owl} alt="owl" />

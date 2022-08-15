@@ -6,6 +6,9 @@ import OwlHintOne from '../../../components/OwlHint/OwlHintOne';
 import EventHeader from '../../../components/EventHeader/EventHeader';
 import EventList from '../../../components/EventList/EventList';
 import EventProgram from '../../../components/EventProgram/EventProgram';
+import EventManagers from '../../../components/EventManagers/EventManagers';
+import PhotoBlock from '../../../components/PhotoBlock/PhotoBlock';
+import HelpForm from '../../../components/HelpForm/HelpForm';
 
 const EventPage: React.FC = () => {
   const { id } = useParams();
@@ -38,6 +41,18 @@ const EventPage: React.FC = () => {
       </div>
       <div className={styles.eventprogram}>
         <EventProgram />
+      </div>
+      <div className={styles.eventmanagers}>
+        <EventManagers />
+      </div>
+      <div className={styles.photoblock}>
+        <PhotoBlock />
+      </div>
+      <div className={styles.helpform}>
+        <HelpForm
+          title="Помочь с выбором?"
+          text="Оставьте заявку и наши специалисты свяжутся с вами, ответят на все вопросы и подберут подходящий вариант обучения."
+        />
       </div>
     </div>
   );

@@ -1,6 +1,8 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
+import 'swiper/css/pagination';
+import './scss/swiper.scss';
 import MainLayout from './layouts/MainLayout';
 import Home from './pages/Home/Home';
 import AllCourses from './pages/AllCourses/AllCourses';
