@@ -9,33 +9,14 @@ import EventProgram from '../../../components/EventProgram/EventProgram';
 import EventManagers from '../../../components/EventManagers/EventManagers';
 import PhotoBlock from '../../../components/PhotoBlock/PhotoBlock';
 import HelpForm from '../../../components/HelpForm/HelpForm';
+import { useAppDispatch, useAppSelector } from '../../../hooks';
+import { setEvent } from '../../../redux/slices/eventSlice/slice';
 
 const EventPage: React.FC = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  type TProgramList = {
-    title: string;
-    text: string;
-  };
-
-  type TItemEvent = {
-    title: string;
-    subtitle: string;
-    eventlist: string[];
-    whatinevent: string[];
-    programtext: string;
-    programlist: [TProgramList];
-  };
-
-  const [item, setItem] = React.useState<TItemEvent>({
-    title: '',
-    subtitle: '',
-    eventlist: [],
-    whatinevent: [],
-    programtext: '',
-    programlist: [{ title: '', text: '' }],
-  });
+  const dispatch = useAppDispatch();
 
   React.useEffect(() => {
     window.scrollTo(0, 0);
@@ -44,7 +25,7 @@ const EventPage: React.FC = () => {
         const { data } = await axios.get(
           'https://62f37628a84d8c968123bc84.mockapi.io/events/' + id,
         );
-        setItem(data);
+        dispatch(setEvent(data));
       } catch (error) {
         alert('Ошибка при получении мероприятия');
         navigate('/events');
@@ -54,19 +35,19 @@ const EventPage: React.FC = () => {
     fetchEvent();
   }, []);
 
-  console.log(item.programlist);
+  const item = useAppSelector((state) => state.events.currentEvent);
 
   return (
     <div className={styles.container}>
       <div className={styles.eventheader}>
-        <EventHeader title={item.title} subtitle={item.subtitle} eventlist={item.eventlist} />
+        <EventHeader />
       </div>
       <div className={styles.eventlist}>
         <OwlHintOne title="" text={['Текст, призывающий записаться на мероприятие']} />
-        <EventList eventlist={item.whatinevent} />
+        <EventList />
       </div>
       <div className={styles.eventprogram}>
-        <EventProgram text={item.programtext} programlist={item.programlist} />
+        <EventProgram />
       </div>
       <div className={styles.eventmanagers}>
         <EventManagers />

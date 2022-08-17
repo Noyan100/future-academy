@@ -10,7 +10,32 @@ export const fetchEvents = createAsyncThunk('users/fetchEvents', async () => {
 const initialState: IEventSlice = {
   items: [],
   status: Status.LOADING, //loading, success, error
-  currentEvent: {} as TEvent,
+  currentEvent: {
+    id: '0',
+    title: '',
+    previewtext: '',
+    type: 'string',
+    date: 'string',
+    background: 'string',
+    subtitle: 'string',
+    eventlist: [''],
+    whatinevent: [''],
+    programtext: 'string',
+    programlist: [
+      {
+        title: 'string',
+        text: 'string',
+      },
+    ],
+    managers: [
+      {
+        imgSrc: 'string',
+        name: [''],
+        text: [''],
+      },
+    ],
+    photos: [''],
+  },
 };
 
 const eventSlice = createSlice({

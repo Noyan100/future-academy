@@ -1,15 +1,11 @@
 import React from 'react';
+import { useAppSelector } from '../../hooks';
 
 import background from './assets/background.jpg';
 import styles from './EventHeader.module.scss';
 
-type TEventHeader = {
-  title: string;
-  subtitle: string;
-  eventlist: string[];
-};
-
-const EventHeader: React.FC<TEventHeader> = ({ title, subtitle, eventlist }) => {
+const EventHeader: React.FC = () => {
+  const { title, subtitle, eventlist } = useAppSelector((state) => state.events.currentEvent);
   return (
     <div className={styles.container}>
       <div className={styles.flexContainer}>

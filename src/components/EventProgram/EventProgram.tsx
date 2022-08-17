@@ -1,27 +1,18 @@
 import React from 'react';
+import { useAppSelector } from '../../hooks';
 import Accordion from './Accordion';
 import styles from './EventProgram.module.scss';
 
-type TProgramList = {
-  title: string;
-  text: string;
-};
-
-const EventProgram: React.FC<{ text: string; programlist: [TProgramList] }> = ({
-  text,
-  programlist,
-}) => {
+const EventProgram: React.FC = () => {
+  const { programlist } = useAppSelector((state) => state.events.currentEvent);
+  console.log(programlist);
   return (
     <div className={styles.container}>
       <div className={styles.textContainer}>
         <div className={styles.title}>Программа мероприятия</div>
-        <div className={styles.subtitle}>{text}</div>
+        <div className={styles.subtitle}></div>
       </div>
-      <div className={styles.program}>
-        {programlist.map((obj, index) => (
-          <Accordion key={index} title={obj.title} text={obj.text} />
-        ))}
-      </div>
+      <div className={styles.program}></div>
     </div>
   );
 };
