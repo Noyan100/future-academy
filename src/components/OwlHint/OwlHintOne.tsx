@@ -7,7 +7,7 @@ const OwlHintOne: React.FC<{ title: string; text: string[] }> = ({ title, text }
   return (
     <div className={`${styles.container} ${styles.one}`}>
       <div className={styles.textContainer}>
-        <h2>{title}</h2>
+        <div className={styles.title}>{title}</div>
         {text.map((value, index) => (
           <p key={index}>{text[index]}</p>
         ))}

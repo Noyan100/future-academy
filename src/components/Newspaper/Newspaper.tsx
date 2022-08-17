@@ -5,6 +5,7 @@ import gridTwoIcon from '../../assets/monitor.svg';
 import gridThreeIcon from '../../assets/newspaper.svg';
 import gridFourIcon from '../../assets/diagram.svg';
 import gridFiveIcon from '../../assets/click-figures.svg';
+import { Link } from 'react-router-dom';
 
 const Newspaper = () => {
   return (
@@ -35,8 +36,10 @@ const Newspaper = () => {
         <button className={styles.button}>Подробнее</button>
       </div>
       <div className={styles.gridThree}>
-        <img src={gridThreeIcon} alt="icon" />
-        <h4 className={styles.title}>Новости Академии</h4>
+        <Link to="/news">
+          <img src={gridThreeIcon} alt="icon" />
+          <h4 className={styles.title}>Новости Академии</h4>
+        </Link>
       </div>
       <div className={styles.gridFour}>
         <img src={gridFourIcon} alt="icon" />

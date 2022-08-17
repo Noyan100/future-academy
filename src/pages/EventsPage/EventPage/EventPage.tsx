@@ -9,14 +9,38 @@ import EventProgram from '../../../components/EventProgram/EventProgram';
 import EventManagers from '../../../components/EventManagers/EventManagers';
 import PhotoBlock from '../../../components/PhotoBlock/PhotoBlock';
 import HelpForm from '../../../components/HelpForm/HelpForm';
-import { useAppDispatch, useAppSelector } from '../../../hooks';
-import { setEvent } from '../../../redux/slices/eventSlice/slice';
 
 const EventPage: React.FC = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const dispatch = useAppDispatch();
+  type TItemEvent = {
+    title: string;
+    subtitle: string;
+    eventlist: string[];
+    whatinevent: string[];
+    programtext: string;
+    programlist: [{ title: string; text: string }];
+    managers: [
+      {
+        imgSrc: string;
+        name: string[];
+        text: string[];
+      },
+    ];
+    photos: string[];
+  };
+
+  const [item, setItem] = React.useState<TItemEvent>({
+    title: '',
+    subtitle: '',
+    eventlist: [],
+    whatinevent: [],
+    programtext: '',
+    programlist: [{ title: '', text: '' }],
+    managers: [{ imgSrc: '', name: [], text: [] }],
+    photos: [],
+  });
 
   React.useEffect(() => {
     window.scrollTo(0, 0);
@@ -25,7 +49,7 @@ const EventPage: React.FC = () => {
         const { data } = await axios.get(
           'https://62f37628a84d8c968123bc84.mockapi.io/events/' + id,
         );
-        dispatch(setEvent(data));
+        setItem(data);
       } catch (error) {
         alert('Ошибка при получении мероприятия');
         navigate('/events');
@@ -35,25 +59,23 @@ const EventPage: React.FC = () => {
     fetchEvent();
   }, []);
 
-  const item = useAppSelector((state) => state.events.currentEvent);
-
   return (
     <div className={styles.container}>
       <div className={styles.eventheader}>
-        <EventHeader />
+        <EventHeader title={item.title} subtitle={item.subtitle} eventlist={item.eventlist} />
       </div>
       <div className={styles.eventlist}>
         <OwlHintOne title="" text={['Текст, призывающий записаться на мероприятие']} />
-        <EventList />
+        <EventList eventlist={item.whatinevent} />
       </div>
       <div className={styles.eventprogram}>
-        <EventProgram />
+        <EventProgram text={item.programtext} programlist={item.programlist} />
       </div>
       <div className={styles.eventmanagers}>
-        <EventManagers />
+        <EventManagers managers={item.managers} />
       </div>
       <div className={styles.photoblock}>
-        <PhotoBlock />
+        <PhotoBlock photos={item.photos} />
       </div>
       <div className={styles.helpform}>
         <HelpForm

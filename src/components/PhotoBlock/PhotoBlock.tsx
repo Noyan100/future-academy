@@ -4,16 +4,7 @@ import { Pagination } from 'swiper';
 import styles from './PhotoBlock.module.scss';
 import Item from './Item';
 
-const photosTemp = [
-  'https://via.placeholder.com/320x200',
-  'https://via.placeholder.com/320x200',
-  'https://via.placeholder.com/320x200',
-  'https://via.placeholder.com/320x200',
-  'https://via.placeholder.com/320x200',
-  'https://via.placeholder.com/320x200',
-];
-
-const PhotoBlock: React.FC = () => {
+const PhotoBlock: React.FC<{ photos: string[] }> = ({ photos }) => {
   return (
     <div className={styles.container}>
       <div className={styles.text}>
@@ -47,7 +38,7 @@ const PhotoBlock: React.FC = () => {
           type: 'progressbar',
         }}
         className={styles.containerItems}>
-        {photosTemp.map((value, index) => (
+        {photos.map((value, index) => (
           <SwiperSlide key={index} className={styles.swiperItem}>
             <Item imgSrc={value} />
           </SwiperSlide>

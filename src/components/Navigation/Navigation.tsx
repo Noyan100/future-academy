@@ -35,7 +35,9 @@ const Header: React.FC<{ theme: string }> = ({ theme }) => {
             <li>
               <Link to="/events">Мероприятия</Link>
             </li>
-            <li>Базы знаний</li>
+            <li>
+              <Link to="/about">Об академии</Link>
+            </li>
             <li>Карьера</li>
             <li className={styles.selectLocation}>
               <img src={theme === 'light' ? mapIconDark : mapIconLight} alt="Map icon" />

@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: 0 auto;
+  gap: 25px;
+  .textContainerOne {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    gap: 15px;
+    .title {
+      font-size: 36px;
+      font-weight: 700;
+    }
+    .date {
+      font-size: 14px;
+    }
+  }
+  .textContainerTwo {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+  .helpform {
+    margin-top: -75px;
+  }
+  .text {
+    font-size: 18px;
+  }
+}

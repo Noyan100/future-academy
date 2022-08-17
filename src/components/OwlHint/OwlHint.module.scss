@@ -18,7 +18,7 @@
     }
   }
 
-  h2 {
+  .title {
     position: relative;
     top: 0;
     left: 30px;
@@ -58,7 +58,7 @@
     width: 300px;
     height: 220px;
     background: transparent url(./owl/border-one.svg) right top/contain no-repeat;
-    padding: 20px 25px;
+    padding: 20px 40px;
     white-space: wrap;
   }
 }
@@ -78,7 +78,7 @@
       background: transparent url(./owl/border-two.svg) no-repeat right top;
     }
   }
-  h2 {
+  .title {
     left: 35px;
     font-size: 24px;
   }

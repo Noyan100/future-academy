@@ -9,7 +9,7 @@ const OwlHintTwo: React.FC<THelpForm> = ({ title, text }) => {
   return (
     <div className={`${styles.container} ${styles.two}`}>
       <div className={styles.textContainer}>
-        <h2>{title}</h2>
+        <div className={styles.title}>{title}</div>
         <p>{text}</p>
       </div>
       <img src={owl} alt="owl" />

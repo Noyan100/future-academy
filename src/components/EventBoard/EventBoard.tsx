@@ -4,6 +4,7 @@ import { useAppDispatch, useAppSelector } from '../../hooks';
 import { fetchEvents } from '../../redux/slices/eventSlice/slice';
 import { colors } from '../../utils/setColor';
 import DefaultItem from './DefaultItem/DefaultItem';
+import Skeleton from './DefaultItem/Skeleton';
 
 import styles from './EventBoard.module.scss';
 
@@ -17,6 +18,33 @@ const EventBoard = () => {
   React.useEffect(() => {
     getEvents();
   }, []);
+
+  const status = useAppSelector((state) => state.events.status);
+  const skeleton = [...new Array(6)].map((obj, index) => (
+    <div className={styles.flexDefault}>
+      <Skeleton key={index} />
+    </div>
+  ));
+  const events =
+    items.length === 0 ? (
+      <div>Курсов не найдено</div>
+    ) : (
+      items.map((obj, index) => (
+        <div className={styles.flexDefault}>
+          <Link key={obj.id} to={`/events/${obj.id}`}>
+            <DefaultItem
+              title={obj.title}
+              text={obj.previewtext}
+              backImage={obj.background}
+              type={obj.type}
+              date={obj.date}
+              color={colors(items.length)[index]}
+            />
+          </Link>
+        </div>
+      ))
+    );
+
   return (
     <div className={styles.container}>
       <div className={styles.flexContainer}>
@@ -34,20 +62,8 @@ const EventBoard = () => {
           </div>
           <button className={styles.button}>Записаться</button>
         </div>
-        {items.map((obj, index) => (
-          <div className={styles.flexDefault} key={obj.id}>
-            <Link key={obj.id} to={`/events/${obj.id}`}>
-              <DefaultItem
-                title={obj.title}
-                text={obj.previewtext}
-                backImage={obj.background}
-                type={obj.type}
-                date={obj.date}
-                color={colors(items.length)[index]}
-              />
-            </Link>
-          </div>
-        ))}
+
+        <div className={styles.flexContainer}>{status === 'loading' ? skeleton : events}</div>
       </div>
     </div>
   );
